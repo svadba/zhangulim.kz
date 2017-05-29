@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% load humanize %}
+{% block application %}
+
+{% for star in list %}
+    {{ star.name }}
+    {{ star.images }}
+{% endfor %}
+{% endblock %} }

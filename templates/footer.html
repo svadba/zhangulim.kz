@@ -1,0 +1,20 @@
+{% load static %}
+<footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script	src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="{% static 'semantic-ui/semantic.js' %}"></script>
+	<script>
+		$('.special.cards .image').dimmer({
+			on: 'hover'
+		});
+	</script>
+	<script type="text/javascript">
+		$('.orderButton').on('click', function () {
+       		var uiCard = $(this).closest('.ui.card');
+       		var text = uiCard.find('a.header').text();
+       		$('body').find('.flavorName').attr('value', text);
+    	});
+	</script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/gallery-script.js' %}"></script>
+</footer>

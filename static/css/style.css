@@ -1,0 +1,150 @@
+ /* --- Fonts --- */
+ @font-face {
+ 	font-family: "MuseoSans";
+ 	src: url(fonts/MuseoSansLight.ttf);
+ }
+ /* --- Global ---*/
+ ::-webkit-scrollbar{
+ 	width:6px;
+ }
+ ::-webkit-scrollbar-thumb{
+ 	border-width:1px 1px 1px 2px;
+ 	border-color: #777;
+ 	background-color: #aaa;
+ }
+ ::-webkit-scrollbar-thumb:hover{
+ 	border-width: 1px 1px 1px 2px;
+ 	border-color: #555;
+ 	background-color: #777;
+ }
+ /* --- Bootstrap --- */
+ body{
+ 	font-family: "MuseoSans",Helvetica,Arial,sans-serif;
+ 	font-size: 18px;
+ }
+ .navbar-default{
+ 	background-color: #F06277;
+ }
+ .navbar-default .navbar-nav>li>a{
+ 	color: #fff;
+ }
+ .navbar-brand{
+ 	padding: 6px 30px 6px 18px;
+ }
+ .navbar-brand>img{
+ 	max-width: 180px;
+ }
+ .navbar-nav>li>a {
+ 	padding-top: 10px;
+ 	padding-bottom: 10px;
+ 	line-height: 20px;
+ }
+ .nav>li>a {
+ 	position: relative;
+ 	display: block;
+ 	padding: 10px 15px;
+ }
+ .navbar-toggle{
+ 	margin-top: 18px;
+ }
+ /* bouquets.php */
+ .item{
+ 	background-size: cover;
+ 	background-repeat: no-repeat;
+ 	background-position: 50% 50%;
+ }
+ .carousel.slide .carousel-inner, body, .carousel-inner>.item.active{
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	bottom: 0;
+ 	right: 0;
+ }
+ .carousel.slide{
+ 	position: absolute;
+ 	top: 70px;
+ 	left: 0;
+ 	bottom: 0;
+ 	right: 0;
+ }
+ .carousel-indicators{
+ 	position: absolute;
+ 	bottom: 10px;
+ 	z-index: 15;
+ 	padding-left: 0;
+ 	margin-left: -30%;
+ 	text-align: center;
+ 	list-style: none;
+ 	background: #f06277;
+ 	border-radius: 6px;
+ }
+ .carousel-indicators .active{
+ 	background-color: #fff;
+ 	color: #f06277;
+ }
+ .carousel-indicators li{
+ 	display: inline-block;
+ 	margin: 6px;
+ 	color: #fff;
+ 	cursor: pointer;
+ 	background-color: #000\9;
+ 	background-color: rgba(0,0,0,0);
+ 	border-radius: 6px;
+ }
+ .carousel-caption {
+ 	position: absolute;
+ 	right: 15%;
+ 	left: 15%;
+ 	z-index: 10;
+ 	padding-top: 20px;
+ 	padding-bottom: 20px;
+ 	color: #fff;
+ 	text-align: center;
+ 	text-shadow: 0 1px 2px rgba(0,0,0,.6);
+ }
+ /* Semantic-ui*/
+ .description{
+ 	font-size: 14px;
+ 	height: 66px;
+ 	overflow-y: scroll;
+ }
+ .extra.content .ui.animated.button{
+ 	font-size: 18px;
+ }
+ .extra.content .ui.button{
+ 	display: block;
+ }
+ /* --- Media ---*/
+ @media (min-width: 768px) {
+ 	.navbar-nav>li>a{
+ 		padding-top: 24px;
+ 		padding-bottom: 24px;
+ 	}
+ 	.carousel-indicators li{
+ 		padding: 0 16.7265px;
+ 		margin-left: 36px;
+ 		font-size: 36px;
+ 	}
+ 	.carousel-indicators{
+ 		left: 48%;
+ 		width: 66%;
+ 	}
+ }
+ @media (max-width: 767px) {
+ 	.carousel-indicators li{
+ 		padding: 0 1.04540625px;
+ 		margin-left: 6px;
+ 		font-size: 18px;
+ 	}
+ 	.carousel-indicators{
+ 		left: 36%;
+ 		width: 90%;
+ 	} 	
+ 	.navbar-default .navbar-collapse{
+ 		z-index: 666;
+ 		width: 100%;
+ 		position: absolute;
+ 		text-align: center;
+ 		background: rgb(240, 98, 119);
+ 	}
+ }

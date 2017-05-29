@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>альбом</title>
+</head>
+<div>
+{% extends "index.html" %}
+{% load humanize %}
+
+{% block application1%}
+<div class="col-xs-12 text-center">
+  <div class="ui special cards grid">
+   {% for album in albums %}
+     <div class="card four wide column">
+      <div class="blurring dimmable image">
+        <div class="ui inverted dimmer">
+          <div class="content">
+            <div class="center">
+              <a href="{{ album.slug }}"><div class="ui red inverted button">Подробнее</div></a>
+            </div>
+          </div>
+        </div>
+       <img src="{{ album.image.url }}" alt="{{ album.title }}">
+      </div>
+      <div class="content">
+        <a class="header">{{ album.title }}</a>
+        <div class="meta">
+          <span class="date">{{ album.date|date:"d E Y" }}</span>
+        </div>
+      </div>
+    </div>
+   {% endfor %}
+  </div>
+</div>
+{% endblock %}
+</div>
+</html>

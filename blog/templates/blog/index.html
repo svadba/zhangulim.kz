@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Блог</title>
+</head>
+<body>
+{% extends "index.html" %}
+{% load humanize %}
+
+{% block application %}
+
+{% for article in articles %}
+  <img src="{{ article.images.url }}" alt="{{ article.title }}">
+{#    <h2>{{ article.id }}</h2>#}
+{#  <h2><a href="/blog/{{ article.id }}/">{{ article.title }}</a></h2>#}
+    <h2><a href="{% url 'detail' article.id %}">{{ article.title }}</a></h2>
+{% endfor %}
+
+    
+{% endblock %}
+</body>
+</html>

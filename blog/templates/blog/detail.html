@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "index.html" %}
+{% load humanize %}
+
+{% block application %}
+
+        <div class="article1-detail">
+        <h2 class="article1-name">{{ article1.title }} </h2>
+        <div class="article1">
+            {% if article1.images %}
+                <img src="{{ article1.images.url }}" alt="{{ article1.name }}">
+            {% endif %}
+
+            <div class="description">{{ article1.description }}</div>
+        </div>
+    
+{% endblock %}
+</body>
+</html>

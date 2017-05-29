@@ -1,0 +1,81 @@
+{% extends "index.html" %}
+{% load humanize %}
+
+{% block application %}
+<div id="carousel-bouquet-generic" class="carousel slide" data-ride="carousel">
+	<!-- Индикаторы -->
+	<ol class="carousel-indicators">
+		<li data-target="#carousel-bouquet-generic" data-slide-to="0" class="active">z</li>
+		<li data-target="#carousel-bouquet-generic" data-slide-to="1">h</li>
+		<li data-target="#carousel-bouquet-generic" data-slide-to="2">a</li>
+		<li data-target="#carousel-bouquet-generic" data-slide-to="3">n</li>
+		<li data-target="#carousel-bouquet-generic" data-slide-to="4">g</li>
+		<li data-target="#carousel-bouquet-generic" data-slide-to="5">u</li>
+		<li data-target="#carousel-bouquet-generic" data-slide-to="6">l</li>
+		<li data-target="#carousel-bouquet-generic" data-slide-to="7">i</li>
+		<li data-target="#carousel-bouquet-generic" data-slide-to="8">m</li>
+	</ol>
+	<!-- Оболочка для слайдов -->
+	<div class="carousel-inner" role="listbox">
+        {% for flavor in flavors %}
+            {% if  forloop.first %}
+		<div class="item active" style="background-image: url({{ flavor.image.url }});">
+            {% else %}
+        <div class="item" style="background-image: url({{ flavor.image.url }});">
+            {% endif %}
+			<div class="carousel-caption">
+				<div class="ui card">
+					<div class="image">
+						<img src="{{ flavor.image.url }}">
+					</div>
+					<div class="content">
+						<a href="" class="header">a{{ flavor.name }}</a>
+						<div class="meta">
+							<span class="date">{{ flavor.price|intcomma }} ₸</span>
+						</div>
+						<div class="description">{{ flavor.description }}</div>
+					</div>
+					<div class="extra content" onclick="openModal()">
+						<div class="ui vertical animated red inverted button orderButton" tabindex="0">
+							<div class="hidden content">Заказать букет</div>
+							<div class="visible content">
+								<i class="shop icon"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endfor %}
+	</div>
+	<!-- Контроллеры -->
+	<a class="left carousel-control" href="#carousel-bouquet-generic" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Предыдущий</span>
+	</a>
+	<a class="right carousel-control" href="#carousel-bouquet-generic" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Следующий</span>
+	</a>
+</div>
+        <div id="myModal" class="modal col-xs-12 text-center">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+            <h2 style="font-size: 36px">Оставить заявку</h2>
+            <form action="{% url 'send_telegram' %}" method="post" class="form-group col-xs-12 col-sm-6 center-block" style="float: none;">
+                {% csrf_token %}
+                <input type="hidden" name="flavor" class="flavorName" value="">
+				<div class="form-group">
+    				<label for="InputName">Имя</label>
+   					<input type="text" class="form-control" id="InputName" placeholder="Имя" name="name">
+  				</div>
+  				<div class="form-group">
+   					<label for="InputPhone">Телефон</label>
+    				<input type="number" class="form-control" id="InputPhone" placeholder="Телефон" name="phone">
+  				</div>
+                <button type="submit" class="btn btn-default">Отправить заявку</button>
+                {% if send %}
+                	<h2>Спасибо. Ваша заявка принята.</h2>
+            	{% endif %}
+            </form>
+        </div>
+{% endblock %}
